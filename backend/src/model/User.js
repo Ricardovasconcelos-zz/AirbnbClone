@@ -1,7 +1,7 @@
-const {Schema, model} = require('mongoose')
+const mongoose = require('mongoose')
 
-const User = new Schema({
+const User = new mongoose.Schema({
     email: String,
 })
 
-module.exports = model('User', User)
+module.exports = mongoose.model('User', User)
