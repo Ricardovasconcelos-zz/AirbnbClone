@@ -10,6 +10,7 @@
     "nodemon": "^1.19.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.7.3",
     "multer": "^1.4.2"
