@@ -70,7 +70,7 @@ body, input, button {
   font-size: 16px;
 }
 
-.content form button.btn{
+.content button.btn{
   border: 0;
   border-radius: 2px;
   width: 100%;
@@ -83,6 +83,12 @@ body, input, button {
   cursor: pointer
 }
 
-.content form button.btn:hover{
+.content form label span{
+  font-weight: normal;
+  color: #999999;
+  font-size: 12px;
+}
+
+.content button.btn:hover{
   background: #e14f50
 }
