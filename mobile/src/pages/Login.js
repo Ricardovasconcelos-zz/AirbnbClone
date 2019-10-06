@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
 
         const { _id } = response.data
 
-        await AsyncStorage.setItem('User', _id);
+        await AsyncStorage.setItem('user', _id);
         await AsyncStorage.setItem('locais', locais);
 
         navigation.navigate('List')
