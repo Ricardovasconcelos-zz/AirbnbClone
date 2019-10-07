@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-
+import socketio from 'socket.io-client'
 import { Text,
      AsyncStorage,
      SafeAreaView,
      Image,
      ScrollView,
+     Alert,
      View,
      StyleSheet
      } from 'react-native'
@@ -15,6 +16,17 @@ import SpotList from '../components/spotList'
 
 export default function List(){
     const [city, setCity] = useState([])
+
+    useEffect(()=>{
+        AsyncStorage.getItem('user').then(user_id => {
+            const socket = socketio('http://192.168.0.7:3333',{
+                query: { user_id }
+            })
+            socket.on('booking_response', booking =>{
+                Alert.alert(`Sua reserva em ${booking.spot.title} em ${booking.date} foi ${booking.approved ? 'APROVADA' : 'REPROVADA'}`)
+            })
+        })
+    }, [])
 
     useEffect(()=>{
         AsyncStorage.getItem('locais').then(local =>{
@@ -44,7 +56,7 @@ const styles = StyleSheet.create({
         height: 32,
         resizeMode: "contain",
         alignSelf: "center",
-        marginTop: 50,
+        marginTop: 90,
     }
 
 })

@@ -25,6 +25,7 @@ import api from '../services/api'
         loadSpots()
     }, [])
     
+
     function handleNavigate(id){
         navigation.navigate('Book', {id})
     }
@@ -37,7 +38,7 @@ import api from '../services/api'
             data={spots} 
             keyExtractor={spot => spot._id} 
             horizontal 
-            showsHorizontalScrollIndicator
+            showsHorizontalScrollIndicator={false}
             renderItem={({item}) => (
                 <View style={styles.listItem}>
                     <Image style={styles.thumbnail} source={{uri: item.thumbnail_url}}/>
