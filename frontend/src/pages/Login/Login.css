@@ -1,25 +1,8 @@
-label#thumbnail{
-    margin-bottom: 20px;
-    border: 1px dashed #ddd;
+.login{
+    width: 100%;
+    height: 100vh;
+    background: #fff url('../../assets/background.jpg') no-repeat;
     background-size: cover;
-    cursor: pointer;
-    height: 160px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-label#thumbnail input {
-    display: none
-}
-
-
-label#thumbnail.has-thumbnail {
-    border: 0
-}
-label#thumbnail.has-thumbnail img{
-    display: none
 }
 
 #logo{

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import logo from '../../assets/logo.png'
+
+import './Login.css'
 
 const Login = ({history}) => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -14,15 +18,30 @@ const Login = ({history}) => {
     const { _id } = response.data;
 
     localStorage.setItem("user", _id);
+    localStorage.setItem("name", name)
 
     history.push('/dashboard')
   }
 
   return (
-    <>
+    <div className="login">
+
+
+<div className="container">
+<img src={logo} alt="" id="logo"/>
+
+      <div className="content">
       <p>Reserve lugares únicos para se hospedar e coisas para fazer.</p>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">E-mail *</label>
+        <label htmlFor="email">Nome *</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Diga-nos seu nome"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+         <label htmlFor="email">E-mail *</label>
         <input
           type="text"
           id="email"
@@ -30,11 +49,15 @@ const Login = ({history}) => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
+        
         <button type="submit" className="btn">
           Entrar
         </button>
       </form>
-    </>
+      </div>
+
+    </div>
+    </div>
   );
 };
 

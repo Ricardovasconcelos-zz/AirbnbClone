@@ -37,6 +37,10 @@ async function handleSubmit(e){
 }
 
     return (
+        <div className="container">
+        <div className="content">
+
+
         <form onSubmit={handleSubmit}>
             <label 
             id="thumbnail" 
@@ -81,7 +85,8 @@ async function handleSubmit(e){
 
             <button type="submit" className="btn">Cadastrar</button>
         </form>
-        
+        </div>
+        </div>
     )
 }
 

@@ -1,31 +1,31 @@
-ul.spot-list {
+
+
+.spot-list {
     width: 100%;
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    border: 1px solid red
 }
 
-ul.spot-list li {
+.spot-list div {
     display: flex;
     flex-direction: column;
 }
 
-ul.spot-list li header{
+.spot-list div header{
     width: 100%;
     height: 120px;
     background-size: cover;
     border-radius: 4px;
 }
 
-ul.spot-list li strong{
+.spot-list div strong{
     margin-top: 10px;
     font-size: 24px;
     color: #444444
 }
 
-ul.spot-list li span{
+.spot-list  span{
     font-size: 15px;
     color: #999
 }
