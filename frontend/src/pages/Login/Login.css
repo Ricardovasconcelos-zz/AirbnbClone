@@ -2,25 +2,26 @@
     width: 100%;
     height: 100vh;
     background: #fff url('../../assets/background.jpg') no-repeat;
-    background-size: cover;
+    background-size: cover; 
+    float: left
 }
 
 #logo{
-    width: 150px;
+    width: 50px;
     height: 50px;
-    margin: auto;
+    margin: 20px;
     display: flex;
   }
-  .container {
-    margin: 0 auto 0;
+  .containerLogin {
     padding-top: 70px;
     max-width: 450px;
+    margin-left: 50px;
     width:100%;
     flex-direction: column;
-    align-items: center;
+    
   }
   
-  .content{
+  .contentLogin{
     width:100%;
     background: #fff;
     margin-top: 30px;
@@ -28,25 +29,25 @@
     padding: 30px;
   }
   
-  .content > p {
+  .contentLogin > p {
     font-size: 22px;
     line-height: 30px;
     margin-bottom: 30px;
   }
   
-  .content form{
+  .contentLogin form{
     display: flex;
     flex-direction: column
   }
   
-  .content form label {
+  .contentLogin form label {
     font-size: 14px;
     color: #444444;
     font-weight: bold;
     margin-bottom: 8px;
   }
   
-  .content form input{
+  .contentLogin form input{
     margin-bottom: 20px;
     border: 1px solid #dddddd;
     border-radius: 2px;
@@ -55,7 +56,7 @@
     font-size: 16px;
   }
   
-  .content button.btn{
+  .contentLogin button.btn{
     border: 0;
     border-radius: 2px;
     width: 100%;
@@ -68,12 +69,21 @@
     cursor: pointer
   }
   
-  .content form label span{
+  .contentLogin form label span{
     font-weight: normal;
     color: #999999;
     font-size: 12px;
   }
   
-  .content button.btn:hover{
+  .contentLogin button.btn:hover{
     background: #e14f50
   }
+
+@media screen and (max-width: 600px){
+  .containerLogin {
+    max-width: 370px;
+    padding-top: 10px;
+    margin: auto
+  }
+                          
+}
