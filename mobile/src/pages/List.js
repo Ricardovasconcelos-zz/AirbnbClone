@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import socketio from 'socket.io-client'
-import { Text,
+import {
      AsyncStorage,
      SafeAreaView,
      Image,
      ScrollView,
      Alert,
-     View,
      StyleSheet
      } from 'react-native'
 
@@ -41,6 +40,8 @@ export default function List(){
             
             <ScrollView>
             {city.map(cities => <SpotList key={cities} city={cities}/>)}
+     
+      
             </ScrollView>
        
         </SafeAreaView>
