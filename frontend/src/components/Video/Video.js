@@ -1,20 +1,26 @@
 import React from 'react';
 import VideoMain from '../../assets/video.webm'
 
+import './Video.css'
 
-import { Player } from 'video-react';
+import { Player, ControlBar, PlayToggle} from 'video-react';
 
 
 export default function Video() {
   return (
     <>
-    <Player
-      playsInline
-      poster="/assets/poster.png"
+    <Player 
+      autoPlay={true}
+      playsInline={false}
       src={VideoMain}
+      height={300}
       muted={true}
-      width={500}
-    />
+    >
+       <ControlBar autoHide={false} disableDefaultControls={true} className="my-class">
+       <PlayToggle />
+      </ControlBar>
+    </Player>
+    
     </>
   );
 }

@@ -140,12 +140,14 @@ const Dashboard = () => {
           </Slider>
         </ul>
 
-        {/* <Video/> */}
+        
         <Link to="/new">
           <button className="btn">Cadastrar novo Spot</button>
         </Link>
       </div>
+      <Video/>
     </div>
+    
   );
 };
 
