@@ -3,16 +3,10 @@
     width: 100%;
     list-style: none;
     margin-bottom: 30px;
-    border: 1px solid red;
     background: #fff;
-    margin-top: 30px;
     border-radius: 4px;
     padding: 30px;
-}
-
-.spot-list div {
-    display: flex;
-    flex-direction: column;
+ 
 }
 
 .spot-list div header{
@@ -29,8 +23,8 @@
 }
 
 .spot-list  span{
-    font-size: 15px;
-    color: #999
+    font-size: 17px;
+    color: rgb(48, 47, 47)
 }
 
 ul.notifications {
@@ -55,28 +49,46 @@ ul.notifications li button{
 ul.notifications li button.accept{
     color: #84c870
 }
+
+ul.notifications li button.accept:hover{
+  color: white;
+  background: #84c870
+}
 ul.notifications li button.reject{
     color: #e55e5e
 }
-.containerDashboard {
-    width: 100%;
-    height: 100vh;
-  }
+ul.notifications li button.reject:hover{
+  color: white;
+  background: #e55e5e
+}
+.contentSpots{
+  margin-right: 20px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
   
-  .contentDashboard{
-    width:100%;
-    margin: 0 auto 0;
-    max-width: 450px;
-    background: #fff;
-    margin-top: 30px;
-    border-radius: 4px;
-    padding: 30px;
+}
+.ferias{
+  font-size: 26px;
+  font-weight: bold;
+  color: #4b4b4b;
+  margin-top: 40px;
+}
+  .spots{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
   }
-  
+  .spots p {
+    color: #6b6b6b;
+    font-size: 15px;
+  }
   .contentDashboard .spot-list > p {
     font-size: 22px;
     line-height: 30px;
     margin-bottom: 30px;
+    
   }
   
   .contentDashboard .spot-list form{
@@ -100,7 +112,7 @@ ul.notifications li button.reject{
     font-size: 16px;
   }
   
-  button.btn{
+  .btn{
     border: 0;
     border-radius: 2px;
     width: 100%;
@@ -119,6 +131,15 @@ ul.notifications li button.reject{
     font-size: 12px;
   }
   
-  button.btn:hover{
+  .btn:hover{
     background: #e14f50
   }
+
+
+
+  @media screen and (max-width: 767px){
+    .contentSpots{
+      height: 290px;
+      padding-left: 5px;
+    }
+}

@@ -5,11 +5,15 @@ import Estadias from "../../assets/quarto.png";
 import Cozinha from "../../assets/cozinha.jpeg";
 import Aventura from "../../assets/aventura.jpg";
 import Comida from "../../assets/comida.jpeg";
+import {Container} from 'react-bootstrap'
 
 export default function Experience() {
+
+  const name = localStorage.getItem('name')
+
   return (
     <>
-    <h2 className="User">O que você deseja encontrar, Ricardo?</h2>
+    <h2 className="User">O que você deseja encontrar, {name}?</h2>
     <div className="cardStyle">
     
       <div className="Experience">
@@ -24,7 +28,7 @@ export default function Experience() {
 
       <div className="Experience">
         <img src={Aventura} alt="" className="img"/>
-          <p>Experiência</p>
+          <p>Aventuras</p>
       </div>
 
       <div className="Experience">

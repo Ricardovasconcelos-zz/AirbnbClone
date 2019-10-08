@@ -6,10 +6,13 @@
 .Experience{
     display: flex;
     flex-direction: row;
-    margin-right: 50px;
-    width: 300px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 30px;
+    width: 270px;
     height: 90px;
     box-shadow: 1px 1px 5px 0.1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 .Experience p{
     margin: 30px 10px;
@@ -22,45 +25,11 @@
     font-size: 26px;
     font-weight: bold;
     color: #4b4b4b;
+    margin-left: 50px;
 }
 .img{
     width: 120px;
 }
-@media screen and (max-width: 600px){
-    .cardStyle{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        margin-left: 50px;
-    }
-    .Experience{
-        margin-top: 20px;
-    }
-}
 
-@media screen and (max-width: 999px){
-    .cardStyle{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .Experience{
-        margin-top: 20px;
-    }
-}
-@media screen and (max-width: 1399px){
-    .cardStyle{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .Experience{
-        margin-top: 20px;
-    }
-}
+
+

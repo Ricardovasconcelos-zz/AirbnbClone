@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "./Dashboard.css";
-import { Link } from "react-router-dom";
+
 import api from "../../services/api";
 import socketio from "socket.io-client";
 import Slider from "react-slick";
-import Experience from '../../components/Experience/Experience'
+import Experience from "../../components/Experience/Experience";
 import Video from "../../components/Video/Video";
+import { Container, Modal, Button} from "react-bootstrap";
+import Header from "../../components/Header/Header";
 
 const Dashboard = () => {
   const [spots, setSpots] = useState([]);
+  const [citySpots, setcitySpots] = useState([]);
   const [requests, setRequests] = useState([]);
 
+  const name = localStorage.getItem("name");
   const user_id = localStorage.getItem("user");
   const socket = useMemo(
     () =>
@@ -37,6 +41,18 @@ const Dashboard = () => {
     loadSpots();
   }, []);
 
+  useEffect(() => {
+    async function loadCitySpots() {
+      const response = await api.get(`/spots`, {
+        params: {
+          city: "São Paulo"
+        }
+      });
+      setcitySpots(response.data);
+    }
+    loadCitySpots();
+  }, []);
+
   async function handleAccept(id) {
     await api.post(`/bookings/${id}/approvals`);
     setRequests(requests.filter(request => request._id !== id));
@@ -51,7 +67,7 @@ const Dashboard = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     initialSlide: 0,
     responsive: [
       {
@@ -97,57 +113,110 @@ const Dashboard = () => {
     ]
   };
 
+ 
   return (
     <div className="containerDashboard">
-      <Experience/>
-      <div className="contentDashboard">
-        <ul className="notifications">
-          {requests.map(request => (
+     
+      <Header />
+      <ul className="notifications">
+        {requests.map(request => (
+          <Modal.Dialog>
             <li key={request._id}>
-              <p>
-                <strong>{request.user.email}</strong> está solicitando uma
-                reserva em <strong>{request.spot.title}</strong> para a data:{" "}
-                <strong>{request.date}</strong>
-              </p>
+              <Modal.Header>
+                <Modal.Title>
+                  Você tem uma nova solicitação
+                </Modal.Title>
+              </Modal.Header>
 
-              <button
-                className="accept"
-                onClick={() => handleAccept(request._id)}
-              >
-                Aceitar
-              </button>
-              <button
-                className="reject"
-                onClick={() => handleReject(request._id)}
-              >
-                Rejeitar
-              </button>
+              <Modal.Body>
+              <strong>{request.user.email}</strong> está solicitando uma
+                  reserva em <strong>{request.spot.title}</strong> para a data:{" "}
+                  <strong>{request.date}</strong>
+              </Modal.Body>
+
+              <Modal.Footer>
+                <Button
+                  className="accept"
+                  onClick={() => handleAccept(request._id)}
+                >
+                  Aceitar
+                </Button>
+                <Button
+                  className="reject"
+                  onClick={() => handleReject(request._id)}
+                >
+                  Rejeitar
+                </Button>
+              </Modal.Footer>
             </li>
-          ))}
-        </ul>
+          </Modal.Dialog>
+        ))}
+      </ul>
+      <Experience />
 
-        <ul className="spot-list">
+      <div className="contentDashboard">
+        <Container>
+          <h2 className="ferias">Onde passar as férias</h2>
+          <div className="spot-list">
+            <Slider {...settings}>
+              {spots.map(spot => (
+                <div>
+                  <div className="contentSpots">
+                    <div className="Image">
+                      <header
+                        style={{
+                          backgroundImage: `url(${spot.thumbnail_url})`
+                        }}
+                      />
+                    </div>
+
+                    <div className="spots">
+                      <strong>{spot.title}</strong>
+                      <p>{spot.city}</p>
+                      <span>
+                        {spot.price ? `R$${spot.price}/dia` : "GRATUITO"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </Container>
+      </div>
+      {/* <Link to="/new">
+          <button className="btn">Cadastrar novo Spot</button>
+        </Link> */}
+      <Video />
+      <Container>
+        <h2 className="ferias">Recomendado para você</h2>
+        <div className="spot-list">
           <Slider {...settings}>
-            {spots.map(spot => (
-              <li key={spot._id}>
-                <header
-                  style={{ backgroundImage: `url(${spot.thumbnail_url})` }}
-                />
-                <strong>{spot.title}</strong>
-                <span>{spot.price ? `R$${spot.price}/dia` : "GRATUITO"}</span>
-              </li>
+            {citySpots.map(spot => (
+              <div>
+                <div className="contentSpots">
+                  <div className="Image">
+                    <header
+                      style={{
+                        backgroundImage: `url(${spot.thumbnail_url})`
+                      }}
+                    />
+                  </div>
+
+                  <div className="spots">
+                    <strong>{spot.title}</strong>
+                    <p>{spot.city}</p>
+                    <span>
+                      {spot.price ? `R$${spot.price}/dia` : "GRATUITO"}
+                    </span>
+                  </div>
+                </div>
+              </div>
             ))}
           </Slider>
-        </ul>
-
-        
-        <Link to="/new">
-          <button className="btn">Cadastrar novo Spot</button>
-        </Link>
-      </div>
-      <Video/>
+        </div>
+      </Container>
     </div>
-    
   );
 };
 
