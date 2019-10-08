@@ -7,10 +7,12 @@ const DashboardController = require('./controllers/DashboardController')
 const BookingController = require('./controllers/BookingController')
 const ApprovalController = require('./controllers/ApprovalController')
 const RejectionController = require('./controllers/RejectionController')
+const ListController = require('./controllers/ListController')
 
 const upload = multer(uploadConfig)
 const routes = express.Router()
 
+routes.get('/list', ListController.index)
 routes.post('/spots/:spot_id/bookings', BookingController.store)
 
 routes.post('/sessions', SessionController.store)
