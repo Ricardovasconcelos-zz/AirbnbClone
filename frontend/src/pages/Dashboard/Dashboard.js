@@ -14,7 +14,6 @@ const Dashboard = () => {
   const [citySpots, setcitySpots] = useState([]);
   const [requests, setRequests] = useState([]);
 
-  const name = localStorage.getItem("name");
   const user_id = localStorage.getItem("user");
   const socket = useMemo(
     () =>
@@ -116,8 +115,9 @@ const Dashboard = () => {
  
   return (
     <div className="containerDashboard">
-     
+
       <Header />
+
       <ul className="notifications">
         {requests.map(request => (
           <Modal.Dialog>
@@ -152,6 +152,7 @@ const Dashboard = () => {
           </Modal.Dialog>
         ))}
       </ul>
+
       <Experience />
 
       <div className="contentDashboard">
@@ -184,10 +185,9 @@ const Dashboard = () => {
           </div>
         </Container>
       </div>
-      {/* <Link to="/new">
-          <button className="btn">Cadastrar novo Spot</button>
-        </Link> */}
+
       <Video />
+
       <Container>
         <h2 className="ferias">Recomendado para você</h2>
         <div className="spot-list">

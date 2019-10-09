@@ -5,7 +5,7 @@ import Estadias from "../../assets/quarto.png";
 import Cozinha from "../../assets/cozinha.jpeg";
 import Aventura from "../../assets/aventura.jpg";
 import Comida from "../../assets/comida.jpeg";
-import {Container} from 'react-bootstrap'
+
 
 export default function Experience() {
 
