@@ -1,5 +1,5 @@
 # AirbnbClone
-![foto (3) (1)](https://user-images.githubusercontent.com/26417291/70765325-35224080-1d39-11ea-9d54-65dc7658008b.jpg)
+[![Watch the video](https://i.imgur.com/dYiPyf9.png)](https://youtu.be/p7uqY8aCvoU)
 
 # About this Project
 This project is Airbnb clone web and mobile built with React, React Native, Node and real time Socket.io
